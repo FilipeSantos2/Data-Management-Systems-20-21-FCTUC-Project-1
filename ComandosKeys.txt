@@ -1,0 +1,62 @@
+1:
+ALTER TABLE date
+ADD PRIMARY KEY(d_datekey);
+2:
+ALTER TABLE supplier
+ADD PRIMARY KEY(s_suppkey);
+3:
+ALTER TABLE customer
+ADD PRIMARY KEY (c_custkey);
+4:
+ALTER TABLE part
+ADD PRIMARY KEY (p_partkey);
+5:
+ALTER TABLE lineorder
+ADD PRIMARY KEY (lo_orderkey, lo_linenumber);
+6:
+ALTER TABLE lineorder
+ADD FOREIGN KEY (lo_orderdate) REFERENCES date (d_datekey);
+7:
+ALTER TABLE lineorder
+ADD FOREIGN KEY (lo_commitdate) REFERENCES date (d_datekey);
+8:
+ALTER TABLE lineorder
+ADD FOREIGN KEY (lo_suppkey) REFERENCES supplier (s_suppkey);
+9:
+ALTER TABLE lineorder
+ADD FOREIGN KEY (lo_custkey) REFERENCES customer (c_custkey);
+10:
+ALTER TABLE lineorder
+ADD FOREIGN KEY (lo_partkey) REFERENCES part (p_partkey);
+
+----------------------------------------------------------------------
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_lo_commitdate_fkey;
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_lo_custkey_fkey;
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_lo_orderdate_fkey;
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_lo_partkey_fkey;
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_lo_suppkey_fkey;
+
+ALTER TABLE lineorder
+Drop Constraint lineorder_pkey;
+
+ALTER TABLE part
+Drop Constraint part_pkey;
+
+ALTER TABLE customer
+DROP Constraint customer_pkey;
+
+ALTER TABLE supplier
+DROP Constraint supplier_pkey;
+
+ALTER TABLE date
+DROP Constraint date_pkey;

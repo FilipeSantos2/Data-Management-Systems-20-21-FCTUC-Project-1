@@ -1,0 +1,42 @@
+ALTER TABLE customer ADD column lixo char(2);
+
+COPY customer
+FROM 'Path' + 'customer.tbl' DELIMITER '|';
+
+ALTER TABLE customer Drop column lixo;
+
+-------------------------------------------------------------------------------
+
+ALTER TABLE date ADD column lixo char(2);
+
+COPY date
+FROM 'Path' + 'date.tbl' DELIMITER '|';
+
+ALTER TABLE date Drop column lixo;
+
+-------------------------------------------------------------------------------
+
+ALTER TABLE lineorder ADD column lixo char(2);
+
+COPY lineorder
+FROM 'Path' + 'lineorder.tbl' DELIMITER '|';
+
+ALTER TABLE lineorder Drop column lixo;
+
+-------------------------------------------------------------------------------
+
+ALTER TABLE part ADD column lixo char(2);
+
+COPY part
+FROM 'Path' + 'part.tbl' DELIMITER '|';
+
+ALTER TABLE part Drop column lixo;
+
+-------------------------------------------------------------------------------
+
+ALTER TABLE supplier ADD column lixo char(2);
+
+COPY supplier
+FROM 'Path' + 'supplier.tbl' DELIMITER '|';
+
+ALTER TABLE supplier Drop column lixo;
